@@ -7,9 +7,12 @@ import {Http, Headers, RequestOptions, RequestMethod, Response} from "@angular/h
 import {Observable} from "rxjs/Observable";
 import '../rxjs-operators';
 import {LoggingService} from "./logging_service";
+import {ServerRetCode} from "../server_return_code";
+
+
 
 export interface IAPIResult {
-  code:number;
+  code:ServerRetCode;
   msg:string;
   ret:Object;
 }
@@ -92,5 +95,10 @@ export class APIService {
       error.status ? `${error.status} - ${error.statusText}` : 'Server error';
     console.error(errMsg); // log to console instead
     return Observable.throw(errMsg);
+  }
+
+  public setToken(token:string) {
+    this.logger_.debug("-----------setToken:", token);
+    this.token_ = token;
   }
 }
