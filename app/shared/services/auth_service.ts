@@ -3,15 +3,19 @@
  */
 
 import {Injectable} from "@angular/core";
-import {APIService} from "./api_service";
+import {APIService, IAPIResult} from "./api_service";
+import {LoggingService} from "./logging_service";
 
 @Injectable()
 export class AuthService {
   private api_:APIService;
   private method_ = "auth";
-  constructor(api:APIService)
+  private logger_:LoggingService;
+  constructor(api:APIService, logger:LoggingService)
   {
     this.api_ = api;
+    this.logger_ = logger;
+
   }
   public login(user:string, pwd:string)
   {
@@ -19,6 +23,12 @@ export class AuthService {
       "username": user,
       "password": pwd,
     };
-    this.api_.doPost(this.method_, params).subscribe();
+
+    this.api_.doPost(this.method_, params).subscribe(r => this.onLoginDone(r));
+  }
+
+  public onLoginDone(result:IAPIResult)
+  {
+    this.logger_.debug("onLoginDone..........", result);
   }
 }

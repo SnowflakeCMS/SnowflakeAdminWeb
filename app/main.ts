@@ -8,12 +8,13 @@ import {MainApp} from "./app.component";
 import {appRouterProviders} from "./app.routes";
 import {disableDeprecatedForms, provideForms} from "@angular/forms"
 import {APIService} from "./shared/services/api_service";
+import {LoggingService} from "./shared/services/logging_service";
 
 
 bootstrap(MainApp, [
   disableDeprecatedForms(),
   provideForms(),
-  [appRouterProviders, HTTP_PROVIDERS, APIService]
+  [appRouterProviders, HTTP_PROVIDERS, APIService, LoggingService]
 ]).catch((err:any) => console.error(err));
 
 
