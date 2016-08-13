@@ -6,6 +6,7 @@ import {ROUTER_DIRECTIVES} from "@angular/router";
 import './shared/rxjs-operators';
 import {LoginPage} from "./+login/index";
 import {AppObject} from "./app.obj";
+import {GlobalMessageBusService} from "./shared/services/global_message_bus_service";
 
 @Component({
   moduleId: module.id,
@@ -17,9 +18,20 @@ import {AppObject} from "./app.obj";
 
 export class MainApp implements OnInit {
   model = new AppObject();
+  private gmb_:GlobalMessageBusService;
+  constructor (gmb:GlobalMessageBusService)
+  {
+    this.gmb_ = gmb;
+    gmb.subscribeLoginComplete(t => this.onLoginComplete(t))
+  }
 
-  ngOnInit():any {
-    console.log("------------------>MainOnInit")
+  private onLoginComplete(token:string)
+  {
+    console.log("------------->", "onLoginComplete", token);
+  }
+
+  public ngOnInit():any
+  {
     return undefined;
   }
 
