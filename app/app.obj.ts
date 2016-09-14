@@ -9,9 +9,7 @@
 
 export class AppObject
 {
-  private token_:string;
   constructor()
   {
-    this.token_ = null;
   }
 }

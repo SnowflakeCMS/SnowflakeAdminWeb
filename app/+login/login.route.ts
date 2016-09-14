@@ -10,9 +10,4 @@ export const LoginRoute:RouterConfig = [
     path: "login",
     component: LoginPage,
   },
-  {
-    path: "",
-    pathMatch: "prefix", //default
-    redirectTo: "login"
-  }
 ];

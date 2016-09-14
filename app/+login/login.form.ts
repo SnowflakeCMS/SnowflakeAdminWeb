@@ -41,7 +41,6 @@ export class LoginForm {
 
   public onLoginResult(result:boolean, token:string = null)
   {
-    console.log("------------onLoginResult", result, token);
     if (!result) {
       return
     }

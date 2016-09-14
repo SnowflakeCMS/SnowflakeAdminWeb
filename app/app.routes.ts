@@ -4,9 +4,10 @@
 
 import {provideRouter, RouterConfig} from "@angular/router";
 import {LoginRoute} from "./+login/index";
+import {MainFrameRoute} from "./+mainframe/index";
 
 const routes:RouterConfig = [
-  ...LoginRoute,
+  ...LoginRoute, ...MainFrameRoute,
 ]
 
 export const appRouterProviders = [
