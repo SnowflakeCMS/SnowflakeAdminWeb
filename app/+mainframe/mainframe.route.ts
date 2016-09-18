@@ -3,12 +3,13 @@
  */
 
 
-import {RouterConfig} from "@angular/router";
+import {Routes, RouterModule} from "@angular/router";
 
 import {MainFrame} from "./mainframe";
 import {AuthGuard} from "../shared/services/auth_guard";
+import {ModuleWithProviders} from "@angular/core";
 
-export const MainFrameRoute:RouterConfig = [
+const routes:Routes = [
   {
     path: "",
     redirectTo: "/main",
@@ -20,3 +21,7 @@ export const MainFrameRoute:RouterConfig = [
     canActivate: [AuthGuard],
   }
 ];
+
+export const MainFrameRouting:ModuleWithProviders = RouterModule.forChild(routes);
+
+

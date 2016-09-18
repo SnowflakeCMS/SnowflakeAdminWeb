@@ -2,16 +2,9 @@
  * Created by Shane Yao on 2016/7/27.
  */
 
-import {provideRouter, RouterConfig} from "@angular/router";
-import {LoginRoute} from "./+login/index";
-import {MainFrameRoute} from "./+mainframe/index";
+import {Routes, RouterModule} from "@angular/router";
+import {ModuleWithProviders} from "@angular/core";
 
-const routes:RouterConfig = [
-  ...LoginRoute, ...MainFrameRoute,
-]
+const routes:Routes = [];
 
-export const appRouterProviders = [
-  provideRouter(routes)
-];
-
-
+export const MainAppRouting: ModuleWithProviders = RouterModule.forRoot(routes);

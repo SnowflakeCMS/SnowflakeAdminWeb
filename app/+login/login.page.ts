@@ -10,7 +10,6 @@ import {AuthService} from "../shared/services/auth_service";
   selector: "cf2-pages-login",
   template: "<login-form></login-form>",
   providers: [AuthService],
-  directives: [LoginForm]
 })
 
 export class LoginPage {

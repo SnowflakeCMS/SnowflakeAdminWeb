@@ -13,7 +13,6 @@ import {GlobalMessageBusService} from "../shared/services/global_message_bus_ser
   moduleId: module.id,
   selector: "login-form",
   templateUrl: "login.form.tpl.html",
-  providers: [AuthService],
   styleUrls: ["login.form.css"]
 })
 
