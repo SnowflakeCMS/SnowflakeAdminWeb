@@ -7,14 +7,18 @@ import {BrowserModule} from '@angular/platform-browser';
 import {MainApp} from "./app.component";
 import {MainAppRouting} from "./app.routes";
 import {FormsModule} from "@angular/forms";
-import {LoginModule} from "./+login/login.module";
+
+import {LoginModule} from "./+login";
+import {SharedModule} from "./shared";
+
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, MainAppRouting, LoginModule],
+  imports: [BrowserModule, FormsModule, MainAppRouting, SharedModule, LoginModule],
+  bootstrap: [MainApp],
   declarations: [MainApp],
 })
 export class MainModule {
   ngDoBootstrap() {
-
+    console.log("--------------->MainModule")
   }
 }

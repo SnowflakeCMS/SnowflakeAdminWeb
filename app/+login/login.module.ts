@@ -9,13 +9,15 @@ import {FormsModule} from "@angular/forms";
 
 import {LoginRouting} from "./login.route";
 import {LoginPage} from "./login.page";
+import {LoginForm} from "./login.form";
 
 @NgModule({
   imports: [BrowserModule, FormsModule, LoginRouting],
-  declarations: [LoginPage],
+  declarations: [LoginPage, LoginForm],
 })
+
 export class LoginModule {
   ngDoBootstrap() {
-
+    console.log("--------------->");
   }
 }
