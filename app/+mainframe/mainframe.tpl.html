@@ -1,4 +1,45 @@
-<div class="container">
-  <!--{{diagnostic}}-->
+<div class="ui pushable">
+  <div class="ui secondary menu">
+    <a class="active item">Home </a>
+    <div class="right menu">
+      <div class="item">
+        <div class="ui icon input">
+          <input type="text" placeholder="Search...">
+          <i class="search link icon"></i>
+        </div>
+      </div>
+      <a class="ui item">UserName</a>
+      <a class="ui item">Logout</a>
+    </div>
+  </div>
 
+  <!-- TODO -->
+  <div class="ui visible inverted left vertical sidebar accordion menu">
+    <a class="item" routerLink="./dashboard">
+      <i class="home icon"></i>
+      Dashboard
+    </a>
+    <div class="item">
+      <div>
+        <div class="title"><i class="dropdown icon"></i>Content</div>
+        <div class="content menu">
+          <a class="item" routerLink="./entry">Entry</a>
+          <a class="item" routerLink="./container">Container</a>
+          <a class="item" routerLink="./linking">Linking</a>
+        </div>
+      </div>
+    </div>
+
+    <a class="item">
+      <i class="calendar icon"></i>
+      Settings
+    </a>
+  </div>
+  <div class="pusher">
+    <router-outlet></router-outlet>
+    <!--<div class="ui basic segment">-->
+      <!--<h3 class="ui header">Application Content</h3>-->
+    <!--</div>-->
+  </div>
 </div>
+

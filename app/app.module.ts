@@ -10,15 +10,17 @@ import {FormsModule} from "@angular/forms";
 
 import {LoginModule} from "./+login";
 import {SharedModule} from "./shared";
+import {MainFrameModule} from "./+mainframe";
 
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, MainAppRouting, SharedModule, LoginModule],
+  imports: [BrowserModule, FormsModule, MainAppRouting, SharedModule, LoginModule, MainFrameModule],
   bootstrap: [MainApp],
   declarations: [MainApp],
 })
 export class MainModule {
   ngDoBootstrap() {
     console.log("--------------->MainModule")
+
   }
 }

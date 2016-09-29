@@ -98,7 +98,9 @@ export class APIService {
   }
 
   public setToken(token:string) {
-    this.logger_.debug("-----------setToken:", token);
     this.token_ = token;
+  }
+  public getToken() {
+    return this.token_;
   }
 }

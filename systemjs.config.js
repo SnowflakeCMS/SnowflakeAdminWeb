@@ -37,6 +37,15 @@
             'angular2-in-memory-web-api': {
                 main: './index.js',
                 defaultExtension: 'js'
+            },
+            'app/shared': {
+                main: './index.js',
+            },
+            'app/+login': {
+                main: './index.js',
+            },
+            'app/+mainframe': {
+                main: './index.js',
             }
         }
     });

@@ -11,15 +11,26 @@ import {ModuleWithProviders} from "@angular/core";
 
 const routes:Routes = [
   {
-    path: "",
-    redirectTo: "/main",
-    pathMatch: "prefix", //default
-  },
-  {
     path: "main",
     component: MainFrame,
     canActivate: [AuthGuard],
-  }
+    children: [
+      {
+        path: "dashboard",
+        loadChildren: "app/+dashboard/dashboard.module#DashboardModule"
+      },
+      {
+        path: "entry",
+        loadChildren: "app/+entry/entry.module#EntryModule"
+      }
+    ]
+  },
+  {
+    path: "",
+    redirectTo: "/main/dashboard",
+    pathMatch: "prefix", //default
+  },
+
 ];
 
 export const MainFrameRouting:ModuleWithProviders = RouterModule.forChild(routes);

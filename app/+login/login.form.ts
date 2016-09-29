@@ -11,21 +11,17 @@ import {GlobalMessageBusService} from "../shared/services/global_message_bus_ser
 
 @Component({
   moduleId: module.id,
-  selector: "login-form",
+  selector: "cf2-login-form",
   templateUrl: "login.form.tpl.html",
   styleUrls: ["login.form.css"]
 })
 
 export class LoginForm {
-  private auth_:AuthService;
-  private gmb_:GlobalMessageBusService;
   model = new LoginObject("", "");
   submitted = false;
 
-  constructor(auth:AuthService, gmb:GlobalMessageBusService)
+  constructor(private auth_:AuthService, private gmb_:GlobalMessageBusService)
   {
-    this.auth_ = auth;
-    this.gmb_ = gmb;
     this.auth_.completeCallback = (r, t) => this.onLoginResult(r, t);
   }
 

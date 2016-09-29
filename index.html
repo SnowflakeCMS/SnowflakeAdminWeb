@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="node_modules/semantic-ui/dist/semantic.min.css">
     <!-- 1. Load libraries -->
      <!-- Polyfill(s) for older browsers -->
     <script src="node_modules/core-js/client/shim.min.js"></script>
     <script src="node_modules/zone.js/dist/zone.js"></script>
     <script src="node_modules/reflect-metadata/Reflect.js"></script>
     <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/semantic-ui/dist/semantic.min.js"></script>
     <!-- 2. Configure SystemJS -->
     <script src="systemjs.config.js"></script>
     <script>
@@ -21,7 +23,9 @@
   <!-- 3. Display the application -->
   <body>
     <cf2-app>
-      Loading...
+      <div class="loading">
+        Loading...
+      </div>
     </cf2-app>
   </body>
 </html>

@@ -11,11 +11,11 @@ import {assert} from "../debug"
 @Injectable()
 export class AuthService {
 
+  private method_:string = "auth";
+  private token_:string = null;
+  private complete_cb_:Function = null;
   constructor(private api_:APIService,
-              private logger_:LoggingService,
-              private method_:string = "Auth",
-              private token_:string = null,
-              private complete_cb_:Function = null)
+              private logger_:LoggingService)
   {
   }
 
@@ -52,6 +52,5 @@ export class AuthService {
     return this.complete_cb_(is_success, token);
   }
 
-  public get token():string { return this.token_; }
-  public get isLoginSuccesed():boolean { return this.token_ != null; }
+  public get isLoginSuccessed():boolean { return this.api_.getToken() != null; }
 }
