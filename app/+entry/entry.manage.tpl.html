@@ -1,0 +1,23 @@
+
+<h2 class="ui header">
+  <i class="right file outline icon"></i>
+  <div class="content">
+    Entry Manage
+  </div>
+</h2>
+<hr/>
+
+<table class="ui celled table">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let entry of model">
+    <td>{{entry.id}}</td>
+    <td>{{entry.title}}</td>
+  </tr>
+  </tbody>
+</table>

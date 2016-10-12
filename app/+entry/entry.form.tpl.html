@@ -1,0 +1,18 @@
+<div class="ui form">
+  <div class="field">
+    <label>Title</label>
+    <input type="text" name="title" placeholder="Entry's title" [(ngModel)]="model.title" >
+  </div>
+
+  <div class="field">
+    <label>Slug</label>
+    <input type="text" name="slug" placeholder="Entry's slug(alias url name)" [(ngModel)]="model.slug">
+  </div>
+
+  <div class="field">
+    <label>Content</label>
+    <textarea name="content" [(ngModel)]="model.content"></textarea>
+  </div>
+
+  <div class="ui button" tabindex="0" (click)="onSubmit()">New entry</div>
+</div>

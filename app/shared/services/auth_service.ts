@@ -12,7 +12,6 @@ import {assert} from "../debug"
 export class AuthService {
 
   private method_:string = "auth";
-  private token_:string = null;
   private complete_cb_:Function = null;
   constructor(private api_:APIService,
               private logger_:LoggingService)

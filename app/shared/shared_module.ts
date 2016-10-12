@@ -13,11 +13,12 @@ import {GlobalMessageBusService} from "./services/global_message_bus_service";
 import {AuthService} from "./services/auth_service";
 import {AuthGuard} from "./services/auth_guard";
 import {Message} from "./components/message/message";
+import {EntryService} from "./services/entry_service";
 
 
 @NgModule({
   imports: [HttpModule, BrowserModule],
-  providers: [DebugService, LoggingService, GlobalMessageBusService, APIService, AuthService, AuthGuard],
+  providers: [DebugService, LoggingService, GlobalMessageBusService, APIService, AuthService, AuthGuard, EntryService],
   declarations: [Message],
   exports: [Message],
 })

@@ -2,22 +2,30 @@
  * Created by Shane Yao on 2016/9/29.
  */
 import {NgModule, ModuleWithProviders} from "@angular/core";
-import {Entry} from "./entry";
 import {Routes, RouterModule} from "@angular/router";
+import {FormsModule} from "@angular/forms";
+import {CommonModule} from "@angular/common";
+import {EntryForm} from "./entry.form";
+import {EntryManage} from "./entry.manage";
 
 const routes:Routes = [
   {
     path: "",
-    component: Entry,
+    component: EntryManage,
   },
+  {
+    path: "new",
+    component: EntryForm,
+  }
 ];
 
 const EntryRouting:ModuleWithProviders = RouterModule.forChild(routes);
 
 @NgModule({
-  imports: [EntryRouting],
-  declarations: [Entry],
+  imports: [CommonModule, FormsModule, EntryRouting],
+  declarations: [EntryForm, EntryManage],
 })
+
 
 export class EntryModule {
 

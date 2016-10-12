@@ -9,7 +9,13 @@ import '../rxjs-operators';
 import {LoggingService} from "./logging_service";
 import {ServerRetCode} from "../server_return_code";
 
-
+enum APICallMethod {
+  Get,
+  Put,
+  Update,
+  Delete,
+  Post,
+}
 
 export interface IAPIResult {
   code:ServerRetCode;
@@ -39,23 +45,44 @@ export class APIService {
     this.http_ = http;
     this.logger_ = logger;
   }
-
-  public doPost(method:string, params:Object, need_authorized:boolean = false)
+  private doRequest(resource:string, call_method:APICallMethod, params:Object, need_authorized:boolean)
   {
     if (need_authorized && this.token_ === null) {
       // TODO raise error
       return;
     }
 
-    let body = JSON.stringify(params);
-    let full_url = this.url_ + method;
+    let full_url = this.url_ + resource;
 
-    let headers = new Headers({'Content-Type': 'application/json'});
-    let options = new RequestOptions({ headers: headers });
-    options.method = RequestMethod.Post;
-    return this.http_.post(full_url, body, options)
+    let params_json_str = JSON.stringify(params);
+    let headers = new Headers();
+    let options = new RequestOptions();
+    options.headers = headers;
+    if (call_method == APICallMethod.Post) {
+      headers.set("Content-Type", "application/json");
+      options.method = RequestMethod.Post;
+      options.body = params_json_str;
+
+    }
+    else if (call_method == APICallMethod.Get) {
+      headers.set("Content-Type", "");
+      options.method = RequestMethod.Get;
+      options.body = "";}
+
+
+    return this.http_.request(full_url, options)
       .map(resp => this.extractData(resp))
       .catch(error => this.handleError(error));
+
+  }
+  public doPost(resource:string, params:Object, need_authorized:boolean = false):Observable<IAPIResult>
+  {
+    return this.doRequest(resource, APICallMethod.Post, params, need_authorized);
+  }
+
+  public doGet(resource:string, params:Object, need_authorized:boolean = false):Observable<IAPIResult>
+  {
+    return this.doRequest(resource, APICallMethod.Get, params, need_authorized);
   }
 
   private extractData(res: Response) {
