@@ -7,6 +7,7 @@ import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {EntryForm} from "./entry.form";
 import {EntryManage} from "./entry.manage";
+import {SharedModule} from "../shared/shared_module";
 
 const routes:Routes = [
   {
@@ -22,7 +23,7 @@ const routes:Routes = [
 const EntryRouting:ModuleWithProviders = RouterModule.forChild(routes);
 
 @NgModule({
-  imports: [CommonModule, FormsModule, EntryRouting],
+  imports: [CommonModule, FormsModule, EntryRouting, SharedModule],
   declarations: [EntryForm, EntryManage],
 })
 

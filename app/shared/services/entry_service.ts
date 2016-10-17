@@ -29,7 +29,13 @@ export class EntryService {
   {
   }
 
+  public delEntry(id:string):Observable<IEntry>
+  {
+    this.logger_.debug("Del entry, id", id)
 
+    return this.api_.doDelete(this.resource + "/" + id, null, false)
+      .map(result => this.handleNewEntryResult(result));
+  }
   public newEntry(entry:IEntryBody):Observable<IEntry>
   {
     this.logger_.debug("EntryForm content:", entry)

@@ -46,7 +46,7 @@
             },
             'app/+mainframe': {
                 main: './index.js',
-            }
+            },
         }
     });
 })(this);

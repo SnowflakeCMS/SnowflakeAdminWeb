@@ -1,4 +1,3 @@
-
 <h2 class="ui header">
   <i class="right file outline icon"></i>
   <div class="content">
@@ -6,18 +5,41 @@
   </div>
 </h2>
 <hr/>
+<button class="ui primary button" (click)="onNewEntry()">+NewEntry</button>
+<div >
+  <table class="ui celled table">
+    <thead>
+    <tr>
+      <th class="one wide">
+        <div class="ui checked checkbox">
+          <input type="checkbox" checked="">
+          <label>ID</label>
+        </div>
+      </th>
+      <th class="eleven wide">Title</th>
+      <th class="one wide">Action</th>
 
-<table class="ui celled table">
-  <thead>
-  <tr>
-    <th>ID</th>
-    <th>Title</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let entry of model">
-    <td>{{entry.id}}</td>
-    <td>{{entry.title}}</td>
-  </tr>
-  </tbody>
-</table>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let entry of model">
+      <td>
+        <div class="ui checked checkbox">
+          <input type="checkbox" checked="">
+          <label>{{entry.id}}</label>
+        </div>
+      </td>
+      <td>{{entry.title}}</td>
+      <td>
+        <div class="ui dropdown left pointing  icon button">
+          <i class="settings icon"></i>
+          <div class="menu">
+            <a class="item" (click)="deleteEntry(entry.id)"><i class="edit icon"></i>Edit</a>
+            <a class="item" (click)="deleteEntry(entry.id)"><i class="edit icon"></i>Delete</a>
+          </div>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

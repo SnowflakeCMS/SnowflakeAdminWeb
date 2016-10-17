@@ -54,26 +54,36 @@ export class APIService {
 
     let full_url = this.url_ + resource;
 
-    let params_json_str = JSON.stringify(params);
     let headers = new Headers();
     let options = new RequestOptions();
     options.headers = headers;
+    // TODO Optimize condition
     if (call_method == APICallMethod.Post) {
       headers.set("Content-Type", "application/json");
       options.method = RequestMethod.Post;
+      let params_json_str = JSON.stringify(params);
       options.body = params_json_str;
-
     }
     else if (call_method == APICallMethod.Get) {
       headers.set("Content-Type", "");
       options.method = RequestMethod.Get;
-      options.body = "";}
-
+      options.body = "";
+    }
+    else if (call_method == APICallMethod.Delete) {
+      headers.set("Content-Type", "text/plain");
+      options.method = RequestMethod.Delete;
+      options.body = "";
+    }
+    this.logger_.info("[APIService]doRequest", full_url, call_method);
 
     return this.http_.request(full_url, options)
       .map(resp => this.extractData(resp))
       .catch(error => this.handleError(error));
 
+  }
+  public doDelete(resource:string, params:Object, need_authorized:boolean = false):Observable<IAPIResult>
+  {
+    return this.doRequest(resource, APICallMethod.Delete, params, need_authorized);
   }
   public doPost(resource:string, params:Object, need_authorized:boolean = false):Observable<IAPIResult>
   {

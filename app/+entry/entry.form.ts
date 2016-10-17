@@ -5,6 +5,7 @@ import {Component, OnInit} from "@angular/core";
 import {LoggingService} from "../shared/services/logging_service";
 import {EntryService, IEntryBody, IEntry} from "../shared/services/entry_service";
 import {EntryFormObject} from "./entry.form.obj";
+import {Router} from "@angular/router";
 
 @Component({
   moduleId: module.id,
@@ -19,6 +20,8 @@ export class EntryForm implements OnInit
   constructor(private entry_service_:EntryService, private logger_:LoggingService)
   {
   }
+
+
 
   public onSubmit()
   {

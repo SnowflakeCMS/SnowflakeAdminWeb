@@ -5,6 +5,7 @@
 import {NgModule, ModuleWithProviders} from "@angular/core";
 import {Routes, RouterModule} from "@angular/router";
 import {Dashboard} from "./dashboard";
+import {SharedModule} from "../shared/shared_module";
 
 const routes:Routes = [
   {
@@ -16,7 +17,7 @@ const routes:Routes = [
 const DashboardRouting:ModuleWithProviders = RouterModule.forChild(routes);
 
 @NgModule({
-  imports: [DashboardRouting],
+  imports: [SharedModule, DashboardRouting],
   declarations: [Dashboard],
 })
 
