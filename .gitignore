@@ -9,3 +9,5 @@ app/shared/*/*/*.js
 app/shared/*/*/*.js.map
 app/*/*.js
 app/*/*.js.map
+semantic.json
+semantic/
