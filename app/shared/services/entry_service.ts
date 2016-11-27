@@ -22,7 +22,7 @@ export interface IEntry {
 
 @Injectable()
 export class EntryService {
-  private resource:string = "entry";
+  private resource:string = "article";
 
   constructor(private api_:APIService,
               private logger_:LoggingService)
